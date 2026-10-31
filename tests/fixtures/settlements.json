@@ -1,0 +1,63 @@
+{
+  "installationId": "stream-game-sepolia-test-20261025-01",
+  "generatedAt": "2026-10-31T20:27:35.312Z",
+  "status": "available",
+  "summary": {
+    "settlementCount": "141",
+    "activeRoundCount": "29",
+    "workAdded": "12561",
+    "completedBlockCount": "1069",
+    "archivedSettlementCount": "131"
+  },
+  "recentSettlements": [
+    {
+      "transactionHash": "0x6fa359fc443c130184535211bf9a3887d26e956c640ed646270e7b385d0bd627",
+      "previousSettledThroughRound": "670",
+      "settledThroughRound": "671",
+      "activeRoundCount": "1",
+      "workAdded": "56",
+      "cumulativeWork": "58518",
+      "cumulativeBlockUnits": "5204637347328",
+      "firstCompletedBlock": "5200",
+      "lastCompletedBlock": "5204",
+      "completedBlockCount": "5",
+      "blockHeight": "5204",
+      "ethereumBlockNumber": "12031805",
+      "blockTimestamp": "2026-10-31T05:40:36.000Z",
+      "logIndex": "234",
+      "confirmationStatus": "safe",
+      "sqkMintedBaseUnits": "19897747392855024948951"
+    },
+    {
+      "transactionHash": "0x8d88b79dcfcd36f4c5213ffac910d634194d5e6b56f26e1673ac6a1f51f6e295",
+      "previousSettledThroughRound": "669",
+      "settledThroughRound": "670",
+      "activeRoundCount": "1",
+      "workAdded": "412",
+      "cumulativeWork": "58462",
+      "cumulativeBlockUnits": "5199652479962",
+      "firstCompletedBlock": "5164",
+      "lastCompletedBlock": "5199",
+      "completedBlockCount": "36",
+      "blockHeight": "5199",
+      "ethereumBlockNumber": "12031755",
+      "blockTimestamp": "2026-10-31T05:30:36.000Z",
+      "logIndex": "86",
+      "confirmationStatus": "safe",
+      "sqkMintedBaseUnits": "143263781228556179632449"
+    }
+  ],
+  "mining": {
+    "nextRound": {
+      "state": "ready",
+      "round": "759",
+      "countedThroughRound": "759",
+      "startsAt": "2026-10-31T20:10:00.000Z",
+      "endsAt": "2026-10-31T20:20:00.000Z",
+      "previousCumulativeBlockUnits": "5204637347328",
+      "cumulativeBlockUnits": "5204637347328",
+      "completedBlockCount": "0",
+      "amountBaseUnits": "0"
+    }
+  }
+}

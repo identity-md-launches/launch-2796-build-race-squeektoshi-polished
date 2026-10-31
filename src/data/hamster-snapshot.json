@@ -1,0 +1,88 @@
+{
+  "source": "https://api.squeekchain.com/v1/measurement/stats",
+  "capturedAt": "2026-10-31T20:28:34.506Z",
+  "stats7": {
+    "installationId": "stream-game-sepolia-test-20261025-01",
+    "generatedAt": "2026-10-31T20:28:13.841Z",
+    "range": "7d",
+    "rounds": {
+      "observedCount": 759,
+      "activeCount": 127,
+      "zeroWorkCount": 632,
+      "missingCount": 155,
+      "activeRateBps": 1673,
+      "averageActiveWorkMilli": "460771",
+      "medianActiveWork": "511",
+      "p90ActiveWork": "639",
+      "mostActiveWork": "699"
+    },
+    "window": {
+      "roundSeconds": 600
+    },
+    "activity": {
+      "coverage": {
+        "coverageBps": 8304,
+        "complete": false
+      },
+      "summary": {
+        "observedWorkUnits": "58518",
+        "mostActiveDate": "2026-10-29",
+        "mostActiveDateWorkUnits": "13297"
+      }
+    },
+    "records": {
+      "peakObservedSpeedMmPerSecond": {
+        "value": "1628",
+        "occurredAt": "2026-10-28T21:28:20.307Z",
+        "coverage": "complete"
+      },
+      "mostWorkUtcDay": {
+        "value": "13297",
+        "occurredAt": "2026-10-29T12:00:00.000Z",
+        "coverage": "complete"
+      }
+    }
+  },
+  "stats30": {
+    "installationId": "stream-game-sepolia-test-20261025-01",
+    "generatedAt": "2026-10-31T20:27:51.149Z",
+    "range": "30d",
+    "rounds": {
+      "observedCount": 759,
+      "activeCount": 127,
+      "zeroWorkCount": 632,
+      "missingCount": 3467,
+      "activeRateBps": 1673,
+      "averageActiveWorkMilli": "460771",
+      "medianActiveWork": "511",
+      "p90ActiveWork": "639",
+      "mostActiveWork": "699"
+    },
+    "window": {
+      "roundSeconds": 600
+    },
+    "activity": {
+      "coverage": {
+        "coverageBps": 1796,
+        "complete": false
+      },
+      "summary": {
+        "observedWorkUnits": "58518",
+        "mostActiveDate": "2026-10-29",
+        "mostActiveDateWorkUnits": "13297"
+      }
+    },
+    "records": {
+      "peakObservedSpeedMmPerSecond": {
+        "value": "1628",
+        "occurredAt": "2026-10-28T21:28:20.307Z",
+        "coverage": "complete"
+      },
+      "mostWorkUtcDay": {
+        "value": "13297",
+        "occurredAt": "2026-10-29T12:00:00.000Z",
+        "coverage": "complete"
+      }
+    }
+  }
+}

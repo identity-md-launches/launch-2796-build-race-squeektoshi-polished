@@ -1,0 +1,10 @@
+# Explicit ignore path budget: dependency directories, npm/Vite caches,
+# TypeScript's incremental cache, and the assignment's disposable scratch area.
+# No source or production assets are excluded. dist/ is a deliverable.
+**/node_modules/
+**/.npm/
+**/.vite/
+**/.cache/
+**/.pnpm-store/
+**/*.tsbuildinfo
+/test/scratch/
