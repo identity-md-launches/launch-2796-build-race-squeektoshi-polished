@@ -77,7 +77,7 @@ Controls and fields use a 3px radius; large functional sections use 4px, the cab
 | Primary/secondary/text/icon buttons | `src/styles.css` | One amber primary action per task; neutral secondary actions; explicit hover, pressed, disabled, busy and focus states; no `transition: all` |
 | `DurationPicker` | `src/components.tsx` | Native fieldset, legend and three pressed-state buttons for 30/60/600 seconds; the selected state has text and color |
 | `GhostPicker`, `PaceSource` | `src/components.tsx` | Labeled native select; recorded/cached provenance and date; unavailable measurements fall back transparently to the real bundled snapshot |
-| `FeedNotice` | `src/components.tsx` | Clear connecting/offline status and retry action; live telemetry uses dashes when unavailable |
+| `FeedNotice` | `src/components.tsx` | Always mounted status row that updates in place: connecting, “Wheel connected” (Check now) and offline (Retry feed). Reserved height (64px desktop, 60px under the mobile breakpoint) so state changes never move the race arena or prediction form. Live telemetry uses dashes when unavailable |
 | Race controls | `src/Race.tsx` | Named progress bar and stamina percentage; decorative beat cue; large touch button; Space/arrows; ignored repeats; ghost pause/resume; live interruption; five-second announcements |
 | Prediction form | `src/Predict.tsx` | Connected number/range inputs; inline actionable validation; explicit save/update and lock states; pending/resolved/unverified history |
 | Profile and badges | `src/ProfilePage.tsx`, `src/profile.tsx` | Editable nickname/unlocked title; clearly local totals/bests; twelve earned/locked states with icon and text; useful empty states |

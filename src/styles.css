@@ -106,7 +106,8 @@ kbd { font-family: inherit; border: 1px solid var(--control); border-radius: 2px
 .console-best strong { color: var(--text); margin-inline-start: 6px; }
 .live-info { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: var(--text-sm); min-height: 101px; }
 .live-info svg { color: var(--amber); }
-.feed-notice { display: flex; gap: 10px; align-items: center; color: var(--muted); background: var(--surface); border-inline-start: 2px solid var(--amber); padding: 10px 16px; margin-block-end: 20px; font-size: var(--text-sm); }
+.feed-notice { display: flex; gap: 10px; align-items: center; min-height: 64px; color: var(--muted); background: var(--surface); border-inline-start: 2px solid var(--amber); padding: 10px 16px; margin-block-end: 20px; font-size: var(--text-sm); }
+.feed-notice.connected > svg { color: var(--amber); }
 .feed-notice > span { flex: 1; }
 .feed-notice .text-button { color: var(--amber); flex-shrink: 0; }
 .under-track { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: var(--text-xs); color: var(--muted); padding-block: 16px 28px; }
@@ -423,7 +424,8 @@ summary { cursor: pointer; min-height: 44px; padding-block: 8px; }
   .game-console > .primary-button { margin-block-start: 0; }
   .game-console .control-hint { margin-block-start: 9px; }
   .game-console > .live-info { min-height: 91px; }
-  .feed-notice { align-items: flex-start; padding: 12px; gap: 8px; font-size: var(--text-xs); margin-block: 16px; }
+  /* Reserve two lines on phones so every connection state keeps the same height. */
+  .feed-notice { align-items: flex-start; min-height: 60px; padding: 12px; gap: 8px; font-size: var(--text-xs); line-height: 1.5; margin-block: 16px; }
   .feed-notice .text-button { min-height: 32px; padding-block: 0; font-size: var(--text-xs); align-self: center; }
   .under-track { align-items: flex-start; font-size: var(--text-xs); gap: 8px; padding-block: 12px 20px; }
   .under-track > span { max-width: 190px; align-items: flex-start; }

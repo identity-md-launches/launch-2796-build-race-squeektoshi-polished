@@ -124,3 +124,31 @@ test('local race rewards are idempotent and bests are separated by mode/opponent
   assert.equal(p.races, 1); assert.equal(p.points, repeated.points); assert.equal(p.races, repeated.races);
   assert.equal(p.bests['ghost:typical:30'], result.playerDistance); assert.ok(p.badges.includes('first')); assert.ok(p.badges.includes('winner')); assert.ok(p.badges.includes('rhythm'));
 });
+test('measurement milestones without chain confirmation do not discard the events feed', () => {
+  // Captured from the real /v1/events?limit=20 response on 2026-10-31 (trimmed to the relevant events).
+  const feed = parseEvents(fixture('events-measurement'));
+  const milestone = feed.events.find(e => e.type === 'measurement.daily_distance_milestone');
+  assert.ok(milestone, 'measurement milestone must parse');
+  assert.equal(milestone.source.kind, 'measurement');
+  assert.equal(milestone.source.confirmationStatus, null);
+  assert.equal(Number(milestone.payload.thresholdDistanceMm) / 1000, 1000);
+  assert.ok(feed.events.some(e => e.type === 'system.settlement_completed' && e.source.confirmationStatus === 'safe'));
+  // Measurement events never become chain evidence; safe chain settlements still do.
+  const proof = settlementEvidence(null, feed, feed.installationId);
+  assert.ok(proof.length > 0 && proof.every(s => s.confirmationStatus === 'safe'));
+  assert.equal(verifyRound(766, proof)?.work, 0);
+  // A chain event missing its confirmation status is skipped alone, not the whole feed.
+  const raw = fixture('events-measurement') as { events: { source: Record<string, unknown> }[] };
+  const broken = structuredClone(raw);
+  const chain = broken.events.find(e => e.source.kind === 'chain')!;
+  delete chain.source.confirmationStatus;
+  assert.equal(parseEvents(broken).events.length, raw.events.length - 1);
+});
+
+test('a pending prediction resolves from safe events evidence alone', () => {
+  const feed = parseEvents(fixture('events-measurement'));
+  const prediction: Prediction = { id: 'r766', installationId: feed.installationId, round: 766, turns: 0, startsAt: 1793481600000, endsAt: 1793482200000, savedAt: 1793481599000, state: 'pending' };
+  const resolved = reconcilePredictions({ ...emptyProfile(), predictions: [prediction] }, null, feed, Date.parse('2026-10-31T21:50:15.900Z'));
+  assert.equal(resolved.predictions[0].state, 'resolved');
+  assert.equal(resolved.predictions[0].actual, 0);
+});

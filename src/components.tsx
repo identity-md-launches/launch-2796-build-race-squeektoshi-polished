@@ -17,8 +17,9 @@ export function PaceSource({ pace, compact = false }: { pace: GhostPace; compact
 }
 export function FeedNotice({ compact = false }: { compact?: boolean }) {
   const { connection, fresh, refresh, refreshing } = useData();
-  if (connection === 'online' && fresh) return null;
-  return <div className={`feed-notice ${compact ? 'compact' : ''}`} role="status"><Icon name={connection === 'connecting' ? 'wheel' : 'moon'} size={18} /><span>{connection === 'connecting' ? 'Checking the wheel. Cached Ghost Race is ready.' : 'Wheel offline. Ghost Race still works with cached recordings.'}</span><button type="button" className="text-button" onClick={refresh} disabled={refreshing}>{refreshing ? 'Checking…' : 'Retry feed'}</button></div>;
+  // Always mounted with a reserved height so connecting, connected and offline states never move the game below it.
+  const connected = connection === 'online' && fresh;
+  return <div className={`feed-notice ${compact ? 'compact' : ''} ${connected ? 'connected' : ''}`} role="status"><Icon name={connection === 'connecting' || connected ? 'wheel' : 'moon'} size={18} /><span>{connected ? 'Wheel connected. Live readings are fresh.' : connection === 'connecting' ? 'Checking the wheel. Cached Ghost Race is ready.' : 'Wheel offline. Ghost Race still works with cached recordings.'}</span><button type="button" className="text-button" onClick={refresh} disabled={refreshing}>{refreshing ? 'Checking…' : connected ? 'Check now' : 'Retry feed'}</button></div>;
 }
 export function ShareResult({ result }: { result: RaceResult }) {
   const [status, setStatus] = useState('');

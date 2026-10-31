@@ -1,0 +1,94 @@
+{
+ "schemaVersion": 3,
+ "installationId": "stream-game-sepolia-test-20261025-01",
+ "status": "available",
+ "generatedAt": "2026-10-31T22:05:06.903Z",
+ "events": [
+  {
+   "id": "measurement:stream-game-sepolia-test-20261025-01:hamster-daily-distance-2:measurement.daily_distance_milestone:2026-10-31:1000000",
+   "eventVersion": 1,
+   "occurredAt": "2026-10-31T21:48:54.168Z",
+   "recordedAt": "2026-10-31T21:48:54.484Z",
+   "source": {
+    "kind": "measurement",
+    "installationId": "stream-game-sepolia-test-20261025-01",
+    "receiptCursor": "97339",
+    "telemetryId": "01a193ef-e218-7dd4-a7dd-d389c1f03a24",
+    "observedAt": "2026-10-31T21:48:54.168Z",
+    "receivedAt": "2026-10-31T21:48:54.484Z",
+    "policyVersion": "hamster-daily-distance-2",
+    "disposition": "accepted"
+   },
+   "type": "measurement.daily_distance_milestone",
+   "payload": {
+    "thresholdDistanceMm": "1000000",
+    "observedDayDistanceMm": "1004432",
+    "utcDate": "2026-10-31"
+   }
+  },
+  {
+   "id": "chain:11155111:0x980b4424c007caf7a1f3670b48c8eaef7ebc3d44:0xc7bbffb0a71e75b36ca74d4a369db8cdcabf0b09760be93dec70ae14138aa543:60:system.settlement_completed",
+   "eventVersion": 2,
+   "occurredAt": "2026-10-31T21:40:36.000Z",
+   "recordedAt": "2026-10-31T21:40:36.000Z",
+   "source": {
+    "kind": "chain",
+    "chainId": "11155111",
+    "target": "sepolia",
+    "releaseId": "stream-game-sepolia-test-20261026-01",
+    "contractAddress": "0x980b4424c007caf7a1f3670b48c8eaef7ebc3d44",
+    "blockNumber": "12036580",
+    "blockHash": "0xfa50f53f73a3cc6718d2188aeeaf9f43b51f3fa2d7172e66bb450c18e207f289",
+    "transactionHash": "0xc7bbffb0a71e75b36ca74d4a369db8cdcabf0b09760be93dec70ae14138aa543",
+    "transactionIndex": "53",
+    "logIndex": "60",
+    "confirmationStatus": "safe"
+   },
+   "type": "system.settlement_completed",
+   "payload": {
+    "previousSettledThroughRound": "766",
+    "settledThroughRound": "767",
+    "activeRoundCount": "1",
+    "workAdded": "615",
+    "completedBlockCount": "57",
+    "firstCompletedBlock": "5205",
+    "lastCompletedBlock": "5261",
+    "cumulativeWork": "59133",
+    "cumulativeBlockUnits": "5261028324771",
+    "blockHeight": "5261"
+   }
+  },
+  {
+   "id": "chain:11155111:0x980b4424c007caf7a1f3670b48c8eaef7ebc3d44:0x95fd1734e05333b75fb58a04a15fff706b75ddbc6ed4e972c50c067758040ae4:145:system.settlement_completed",
+   "eventVersion": 2,
+   "occurredAt": "2026-10-31T21:30:48.000Z",
+   "recordedAt": "2026-10-31T21:30:48.000Z",
+   "source": {
+    "kind": "chain",
+    "chainId": "11155111",
+    "target": "sepolia",
+    "releaseId": "stream-game-sepolia-test-20261026-01",
+    "contractAddress": "0x980b4424c007caf7a1f3670b48c8eaef7ebc3d44",
+    "blockNumber": "12036531",
+    "blockHash": "0x0457c710a25ce473fcc94fef9c63e5c57ead731e0485f97508566d90becd8fb0",
+    "transactionHash": "0x95fd1734e05333b75fb58a04a15fff706b75ddbc6ed4e972c50c067758040ae4",
+    "transactionIndex": "124",
+    "logIndex": "145",
+    "confirmationStatus": "safe"
+   },
+   "type": "system.settlement_completed",
+   "payload": {
+    "previousSettledThroughRound": "765",
+    "settledThroughRound": "766",
+    "activeRoundCount": "0",
+    "workAdded": "0",
+    "completedBlockCount": "0",
+    "firstCompletedBlock": null,
+    "lastCompletedBlock": null,
+    "cumulativeWork": "58518",
+    "cumulativeBlockUnits": "5204637347328",
+    "blockHeight": "5204"
+   }
+  }
+ ]
+}

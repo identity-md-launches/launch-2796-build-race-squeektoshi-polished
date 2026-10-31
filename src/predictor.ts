@@ -21,7 +21,7 @@ export function settlementEvidence(settlements: SettlementsData | null, events: 
   const records = settlements?.installationId === installationId ? [...settlements.recentSettlements] : [];
   if (events?.installationId === installationId) {
     for (const e of events.events) {
-      if (e.type !== 'system.settlement_completed') continue;
+      if (e.type !== 'system.settlement_completed' || e.source.kind !== 'chain' || !e.source.confirmationStatus) continue;
       const p = e.payload;
       if ([p.previousSettledThroughRound, p.settledThroughRound, p.workAdded, p.cumulativeWork].some(v => numberOf(v) === null)) continue;
       records.push({ previousSettledThroughRound: String(p.previousSettledThroughRound), settledThroughRound: String(p.settledThroughRound), workAdded: String(p.workAdded), cumulativeWork: String(p.cumulativeWork), confirmationStatus: e.source.confirmationStatus });

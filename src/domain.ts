@@ -66,7 +66,7 @@ export interface WheelEvent {
   id: string;
   type: string;
   occurredAt: string;
-  source: { confirmationStatus: string };
+  source: { kind: string; confirmationStatus: string | null };
   payload: Record<string, unknown>;
 }
 export interface EventsData { installationId: string; generatedAt: string; status: string; events: WheelEvent[] }

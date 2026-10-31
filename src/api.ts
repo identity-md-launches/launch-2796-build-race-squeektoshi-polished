@@ -40,10 +40,16 @@ export function parseSettlements(v: unknown): SettlementsData {
 export function parseEvents(v: unknown): EventsData {
   const o = object(v);
   if (o.status !== 'available' || !Array.isArray(o.events)) throw new Error('Events unavailable');
-  const events: WheelEvent[] = o.events.map(v => {
-    const e = object(v), source = object(e.source);
-    return { id: text(e.id), type: text(e.type), occurredAt: date(e.occurredAt), source: { confirmationStatus: text(source.confirmationStatus) }, payload: object(e.payload) };
-  });
+  const events: WheelEvent[] = [];
+  for (const v of o.events) {
+    // One malformed or unfamiliar event must not discard the rest of the feed.
+    try {
+      const e = object(v), source = object(e.source), kind = text(source.kind);
+      // Chain events carry a confirmation status; measurement events (e.g. daily distance milestones) do not.
+      const confirmationStatus = kind === 'chain' ? text(source.confirmationStatus) : typeof source.confirmationStatus === 'string' ? source.confirmationStatus : null;
+      events.push({ id: text(e.id), type: text(e.type), occurredAt: date(e.occurredAt), source: { kind, confirmationStatus }, payload: object(e.payload) });
+    } catch { /* skip this event only */ }
+  }
   return { installationId: text(o.installationId), generatedAt: date(o.generatedAt), status: 'available', events };
 }
 export async function readEndpoint<T>(path: string, parse: (v: unknown) => T, signal?: AbortSignal): Promise<T> {
